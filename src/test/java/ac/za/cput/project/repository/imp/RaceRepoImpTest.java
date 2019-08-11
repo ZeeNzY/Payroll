@@ -1,8 +1,9 @@
 package ac.za.cput.project.repository.imp;
 
-import ac.za.cput.project.Factory.GenderFactory;
+import ac.za.cput.project.Factory.RaceFactory;
 import ac.za.cput.project.domain.Gender;
-import ac.za.cput.project.repository.GenderRepository;
+import ac.za.cput.project.domain.Race;
+import ac.za.cput.project.repository.RaceRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,36 +12,36 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
-public class GenderRepoImpTest {
+public class RaceRepoImpTest {
 
-    private GenderRepository repository;
-    private Gender gender;
+    private RaceRepository repository;
+    private Race race;
 
     @Before
     public void setUp() throws Exception {
-        this.repository = GenderRepoImp.getRepository();
-        this.gender = GenderFactory.getGender("female");
+        this.repository = RaceRepoImp.getRepository();
+        this.race = RaceFactory.getRace("coloured");
     }
 
     @Test
     public void create() {
-        Gender genders = this.repository.create(this.gender);
-        Assert.assertSame(genders,this.gender);
+        Race races = this.repository.create(this.race);
+        Assert.assertSame(races,this.race);
         getAll();
     }
 
     @Test
     public void update() {
-        String female = "female";
+        String female = "coloured";
         Gender gender = new Gender.Builder().gender(female).build();
-        this.repository.update(gender);
+        this.repository.update(race);
         Assert.assertSame(female, gender.getGender());
         getAll();
     }
 
     @Test
     public void delete() {
-        this.repository.delete(gender.getGender());
+        this.repository.delete(race.getRace());
         getAll();
     }
 
@@ -52,6 +53,7 @@ public class GenderRepoImpTest {
 
     @Test
     public void getAll() {
-        Set<Gender> all = this.repository.getAll();
+        Set<Race> all = this.repository.getAll();
     }
+
 }
