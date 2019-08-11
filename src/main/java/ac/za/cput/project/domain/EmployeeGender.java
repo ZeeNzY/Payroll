@@ -39,10 +39,4 @@ public class EmployeeGender {
         }
     }
 
-    public String toString() {
-        return "EmployeeGender{" +
-                "Gender ID='" + gender_id + '\'' +
-                ", Employee ID ='" + emp_id + '\'' +
-                '}';
-    }
 }

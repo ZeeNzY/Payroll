@@ -16,9 +16,9 @@ public class EmployeeFactoryTest {
         String gender = "female";
 
         Employee employee = EmployeeFactory.getEmployee(name,last_name,race,gender);
-       // String details[4]  {};
+        String details[] = {name,last_name,race,gender};
 
-        Assert.assertNotEquals(employee, name+",");
+        Assert.assertNotEquals(employee, details);
     }
 
 }
